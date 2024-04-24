@@ -10,8 +10,8 @@ const routes: Routes = [
     { path: 'auth', component: AuthComponent },
     { path: 'advisor', component: AdvisorComponent },
     { path: 'student', component: StudentComponent },
-    { path: 'adm', component:AdmComponent },
-    { path:'updater', component:UpdaterComponent }];
+    { path: 'adm/:name', component:AdmComponent },
+    { path: 'updater', component:UpdaterComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

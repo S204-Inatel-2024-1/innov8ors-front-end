@@ -13,6 +13,8 @@ export class AuthComponent {
   attempt: boolean = false;
   loading: boolean = false;
   repos: string[] = [];
+  role: string = '';
+  name: string = '';
 
   errorMessage: string = '';
   constructor(private router: Router, private userDataService: UsersDataService) {}
@@ -21,35 +23,26 @@ export class AuthComponent {
     this.loading = true;
     this.userDataService.tryLogin(this.textoUsuario, this.senhaUsuario).subscribe(
       (response: any) =>{
-        console.log('response received');
         this.repos = response;
+        this.role = response["User"]["role"];
+        this.name = response["User"]["email"];
+        console.log();
+        if(this.role == '[ROLE_ADMIN]'){
+          this.router.navigate(['/adm', this.name]);
+        }else{
+          if(this.role == '[ROLE_ADVISOR]'){
+            this.router.navigate(['/advisor']);
+          }else{
+            this.router.navigate(['/student']);
+          }
+        }
       },
       (error) => {                              //error() callback
         console.error('Request failed with error')
         this.errorMessage = error;
         this.loading = false;
         this.attempt = true;
-      },
-      () => {                                   //complete() callback
-        console.error('Request completed')      //This is actually not needed 
-        this.loading = false; 
       });
-    
-    /*const user = 'Giovani';
-    const adv = 'Lucas';
-    const adm = 'Felipe';
-    
-    if (this.textoUsuario === user) {
-      this.router.navigate(['/student']);
-    } else if(this.textoUsuario == adv) {
-      this.router.navigate(['/advisor']);
-    }
-    else if(this.textoUsuario == adm){
-      this.router.navigate(['/adm']);
-    }else{
-      this.attempt = true;
-    }
-    */
   }
 
 }

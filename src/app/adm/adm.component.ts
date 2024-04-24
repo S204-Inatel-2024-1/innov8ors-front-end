@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButton } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -22,8 +22,11 @@ import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/rou
 })
 export class AdmComponent {
   panelOpenState: boolean = false;
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  name = this.route.snapshot.paramMap.get('name');
   updateData(){
     this.router.navigate(['/updater']);
   }
+
 }
