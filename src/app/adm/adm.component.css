@@ -1,8 +1,7 @@
 .but-row{
     display: flex;
-    margin: auto;
-    gap: 70px;
-    margin-top: 40px;
+    gap: 15%;
+    margin-top: 10%;
 }
 #adm, #projetos{
     padding: 25px;
@@ -11,7 +10,7 @@
       #5f98ee,
       #20EB9A);
     color: #ffffff;
-    font-size: 30px;
+    font-size: 25px;
 	margin: auto;
 	text-align: left;
 }

@@ -1,16 +1,17 @@
-<body>
-<div class="auth-style">
+<body class="auth-style">
+  <div class="teste">
 <p></p>
+<h2>Faça seu login!</h2>
   <mat-form-field>
     <mat-label>Nome</mat-label>
     <input matInput [(ngModel)]="textoUsuario">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Senha</mat-label>
-    <input matInput [(ngModel)]="senhaUsuario">
+    <input type="password" matInput [(ngModel)]="senhaUsuario">
   </mat-form-field>
 <router-outlet>
-<button mat-raised-button (click)="verificarUser()">Submeter</button>
+<button mat-raised-button color="primary" (click)="verificarUser()">Submeter</button>
 <p></p>
 </router-outlet>
 <p></p>
