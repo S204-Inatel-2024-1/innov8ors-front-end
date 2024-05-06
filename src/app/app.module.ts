@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
 
 const materialModules = [
   CommonModule,
@@ -34,7 +35,7 @@ const materialModules = [
     ...materialModules
   ],
   providers: [],
-  declarations: [ AppComponent, AuthComponent ],
+  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

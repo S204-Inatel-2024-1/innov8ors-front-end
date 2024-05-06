@@ -28,5 +28,8 @@ export class AdmComponent {
   updateData(){
     this.router.navigate(['/updater']);
   }
+  createProject(){
+    this.router.navigate(['/create-proj'])
+  }
 
 }

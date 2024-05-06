@@ -8,10 +8,8 @@ body{
   margin: 0;
 }
 #titulo{
-  padding: 4%;
-  font-size: 30px;
-  margin: auto;
-  text-align: left;
+  color: black;
+  text-align: center;
 }
 #titulo p {
   font-size: 15px;
@@ -24,7 +22,7 @@ body{
   align-items: center;
   margin: auto;
   background: #fff;
-  border-radius: 9%;
+  border-radius: 2%;
   width: 70%;
   margin-right: auto;
   margin-left: auto;
