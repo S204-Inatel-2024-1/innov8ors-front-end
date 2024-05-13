@@ -8,8 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
@@ -19,20 +20,22 @@ const materialModules = [
   MatInputModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ...materialModules,
+    ReactiveFormsModule,
+    FormsModule,
+    ...materialModules
   ],
   exports:[
-    ...materialModules
+    ...materialModules,
   ],
   providers: [],
   declarations: [ AppComponent, AuthComponent, ProjCreatorComponent ],

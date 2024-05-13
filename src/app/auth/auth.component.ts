@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { UsersDataService } from '../services/users-data.service';
 import { Router } from '@angular/router'
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -15,7 +17,10 @@ export class AuthComponent {
   repos: string[] = [];
   role: string = '';
   name: string = '';
-
+  color = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  nameController = new FormControl('', Validators.required);
+  passController = new FormControl('', Validators.required);
   errorMessage: string = '';
   constructor(private router: Router, private userDataService: UsersDataService) {}
 

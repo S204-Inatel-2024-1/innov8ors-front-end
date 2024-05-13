@@ -4,17 +4,29 @@
 <h2>Faça seu login!</h2>
   <mat-form-field>
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="textoUsuario">
+    <input matInput [formControl]="nameController" [(ngModel)]="textoUsuario">
+    @if (nameController.hasError('required')) {
+      <mat-error>Nome é <strong>obrigatório</strong></mat-error>
+    }
 </mat-form-field>
   <mat-form-field>
     <mat-label>Senha</mat-label>
-    <input type="password" matInput [(ngModel)]="senhaUsuario">
+    <input type="password" [formControl]="passController" matInput [(ngModel)]="senhaUsuario">
+    @if (passController.hasError('required')) {
+      <mat-error>Senha é <strong>obrigatória</strong></mat-error>
+    }
   </mat-form-field>
 <router-outlet>
+  <p></p>
 <button mat-raised-button color="fetincolor" (click)="verificarUser()">Submeter</button>
 <p></p>
 </router-outlet>
 <p></p>
 <p class="invalid-pass" *ngIf="attempt">Usuário ou senha inválidos</p>
+    <mat-progress-spinner
+      *ngIf="loading"
+        [color]="color"
+        [mode]="mode">
+    </mat-progress-spinner>
 </div>
 </body>
