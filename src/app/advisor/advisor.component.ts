@@ -41,7 +41,7 @@ export class AdvisorComponent {
           this.loading = false;
         },
         () => {                                   //complete() callback
-          console.error('Request completed')      //This is actually not needed 
+          console.log('Request completed')      //This is actually not needed 
           this.loading = false; 
         })
   }

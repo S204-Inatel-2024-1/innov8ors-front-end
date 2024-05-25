@@ -17,9 +17,9 @@ export class UsersDataService {
     })
   }
 
-  handleAdvisor(bearer: string){
+  handleAdvisor(bearer:string){
     const headers = new HttpHeaders({
-      'Authorization': bearer
+      'Authorization': `Bearer ${bearer}`
     });
     return this.http.get<any>(
       this.urlBase + '/advisor',
