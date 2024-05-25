@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UsersDataService } from '../services/users-data.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -18,6 +18,7 @@ export class AuthComponent {
   role: string = '';
   name: string = '';
   color = 'primary';
+  bearer = '';
   mode: ProgressSpinnerMode = 'indeterminate';
   nameController = new FormControl('', Validators.required);
   passController = new FormControl('', Validators.required);
@@ -31,14 +32,15 @@ export class AuthComponent {
         this.repos = response;
         this.role = response["User"]["role"];
         this.name = response["User"]["email"];
-        console.log();
+        this.bearer = response["Bearer"]
+
         if(this.role == '[ROLE_ADMIN]'){
           this.router.navigate(['/adm', this.name]);
         }else{
           if(this.role == '[ROLE_ADVISOR]'){
-            this.router.navigate(['/advisor']);
+            this.router.navigate(['/advisor', this.bearer]);
           }else{
-            this.router.navigate(['/student']);
+            this.router.navigate(['/student', this.bearer]);
           }
         }
       },
