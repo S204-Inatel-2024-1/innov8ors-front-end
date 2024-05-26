@@ -6,6 +6,8 @@ import { AdmComponent } from './adm/adm.component';
 import { UpdaterComponent } from './updater/updater.component';
 import { NgModule } from '@angular/core';
 import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
+import { IntermScreenComponent } from './interm-screen/interm-screen.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 const routes: Routes = [    
     { path: 'auth', component: AuthComponent },
@@ -13,7 +15,9 @@ const routes: Routes = [
     { path: 'student/:bearer', component: StudentComponent },
     { path: 'adm/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
-    { path: 'create-proj', component:ProjCreatorComponent} 
+    { path: 'create-proj', component:ProjCreatorComponent},
+    { path: 'interm-screen', component:IntermScreenComponent},
+    { path: 'help-page', component:HelpPageComponent}
 ];
 
 @NgModule({

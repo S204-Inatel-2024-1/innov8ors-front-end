@@ -14,6 +14,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
+import { IntermScreenComponent } from './interm-screen/interm-screen.component';
+import { HelpPageComponent } from './help-page/help-page.component';
 
 const materialModules = [
   CommonModule,
@@ -38,7 +40,7 @@ const materialModules = [
     ...materialModules,
   ],
   providers: [],
-  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent ],
+  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
