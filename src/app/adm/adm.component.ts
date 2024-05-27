@@ -25,11 +25,13 @@ export class AdmComponent {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   name = this.route.snapshot.paramMap.get('name');
+  bearer = this.route.snapshot.paramMap.get('bearer');
+
   updateData(){
     this.router.navigate(['/updater']);
   }
   createProject(){
-    this.router.navigate(['/create-proj'])
+    this.router.navigate(['/create-proj', this.bearer])
   }
 
 }

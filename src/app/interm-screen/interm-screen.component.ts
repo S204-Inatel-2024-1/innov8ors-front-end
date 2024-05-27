@@ -41,14 +41,33 @@ export class IntermScreenComponent {
           })
     }
 
+    handleStudent(bearer: any){
+      this.loading = true;
+      this.errorMessage = "";
+      this.userDataService.handleStudent(bearer)
+        .subscribe(
+          (response) => {    
+            console.log(response)
+          },
+          (error) => {                              
+            console.error('Request failed with error')
+            this.errorMessage = error;
+            this.loading = false;
+          },
+          () => {                                 
+            console.log('Request completed')      
+            this.loading = false; 
+          })
+    }
+
   goToPage() {
     if (this.role == '[ROLE_ADMIN]') {
-      this.router.navigate(['/adm', this.name]);
+      this.router.navigate(['/adm', this.bearer, this.name]);
     } else {
       if (this.role == '[ROLE_ADVISOR]') {
         this.handleAdvisor(this.bearer);
       } else {
-        this.router.navigate(['/student', this.bearer]);
+        this.handleStudent(this.bearer);
       }
     }
   }

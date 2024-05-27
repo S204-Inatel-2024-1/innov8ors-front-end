@@ -13,9 +13,9 @@ const routes: Routes = [
     { path: 'auth', component: AuthComponent },
     { path: 'advisor/:phaseName', component: AdvisorComponent },
     { path: 'student/', component: StudentComponent },
-    { path: 'adm/:name', component:AdmComponent },
+    { path: 'adm/:bearer/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
-    { path: 'create-proj', component:ProjCreatorComponent},
+    { path: 'create-proj/:bearer', component:ProjCreatorComponent},
     { path: 'interm-screen/:bearer/:name/:role', component:IntermScreenComponent},
     { path: 'help-page', component:HelpPageComponent}
 ];

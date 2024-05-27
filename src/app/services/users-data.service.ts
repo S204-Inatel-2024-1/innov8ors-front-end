@@ -13,11 +13,33 @@ export class UsersDataService {
     this.dataArray = [];
   }
 
+  // Requisições para API
   tryLogin(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.urlBase + '/auth/login', {
       "email": email,
       "password": password
     })
+  }
+
+  tryUpdate(jsonData:any, bearer:string):Observable<any>{
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${bearer}`
+    });
+    const json = {
+      "teamName": "teste",
+      "members": [
+        {
+          "name": "ola",
+          "email": "ola@ola"
+        }
+      ],
+      "advisor": {
+        "name": "teste",
+        "email": "teset2"
+      }
+    }
+
+    return this.http.post<any>(this.urlBase + '/adm/teams/register', json, {headers:headers})
   }
 
   handleAdvisor(bearer:string){
@@ -37,7 +59,7 @@ export class UsersDataService {
       'Authorization': bearer
     });
     return this.http.get<any>(
-      this.urlBase + '/student',
+      this.urlBase + '/member',
       { 
         headers: headers 
       }
@@ -56,6 +78,7 @@ export class UsersDataService {
     )
   }
 
+  // Configurações de array
   setTeams(data: any[]){
     this.dataArray = data;
   }

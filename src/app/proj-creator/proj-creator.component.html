@@ -5,52 +5,52 @@
     </div>
         <mat-form-field>
             <mat-label>Titulo</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="tituloProj">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Membro 1</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="membro1">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Email 1</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="email1">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Membro 2</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="membro2">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Email 2</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="email2">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Membro 3</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="membro3">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Email 3</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="email3">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Membro 4</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="membro4">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Email 4</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="email4">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Orientador</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="advisorName">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Email Orientador</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="emailAdv">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status</mat-label>
             <input matInput>
         </mat-form-field>
-        <button mat-raised-button color="fetincolor">Salvar</button>
+        <button mat-raised-button color="fetincolor" (click)="saveProject()">Salvar</button>
     </div>
 </body>
