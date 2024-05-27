@@ -2,59 +2,67 @@
   <div id="links">
     <ul>
       <li><a href="https://www.koalastothemax.com/" target="_blank">Avaliacao das Bancas</a></li>
-      <li><a href="https://www.mds.gov.br/webarquivos/arquivo/seguranca_alimentar/Edital/Manual%20orientador.pdf" target="_blank">Manual do Orientador</a></li>
+      <li><a href="https://www.mds.gov.br/webarquivos/arquivo/seguranca_alimentar/Edital/Manual%20orientador.pdf"
+          target="_blank">Manual do Orientador</a></li>
     </ul>
   </div>
   <div id="titulo">Times Orientados</div>
 
-<mat-accordion>
-  
-  <div id="projetos">
-    <mat-expansion-panel (opened)="panelOpened()"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          Projeto 1
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+  <mat-accordion>
 
-    <p>ID</p>
-    <p>Status</p>
+    <div id="projetos">
+      <mat-expansion-panel (opened)="panelOpened()" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Fases da Fetin
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Fase atual: {{phaseName}}</p>
+      </mat-expansion-panel>
+        <mat-expansion-panel *ngFor="let team of teams" (opened)="panelOpened()" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Time 1
+            </mat-panel-title>
+          </mat-expansion-panel-header>
 
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            Membros
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-        
-      <ul>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-      </ul>
-    </mat-expansion-panel>
+          <p>ID: {{id}}</p>
+          <p>Nome: {{name}}</p>
+          <p>Ativo: {{status}}</p>
+          <p>Orientador: {{advisorName}}</p>
 
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Entregas e prazos
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Membros
+              </mat-panel-title>
+            </mat-expansion-panel-header>
 
-      <ol>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-      </ol>
-    </mat-expansion-panel>
+            <ul>
+              <li>Nome Membro</li>
+              <li>Nome Membro</li>
+              <li>Nome Membro</li>
+              <li>Nome Membro</li>
+            </ul>
+          </mat-expansion-panel>
 
-  </mat-expansion-panel>
-  </div>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Entregas e prazos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
 
-</mat-accordion>
+            <ol>
+              <li>Conteudo - Data</li>
+              <li>Conteudo - Data</li>
+              <li>Conteudo - Data</li>
+              <li>Conteudo - Data</li>
+            </ol>
+          </mat-expansion-panel>
+
+        </mat-expansion-panel>
+    </div>
+
+  </mat-accordion>
 </body>

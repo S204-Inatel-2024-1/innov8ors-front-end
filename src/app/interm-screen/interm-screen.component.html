@@ -1,11 +1,11 @@
 <body>
     <div id="apresentacao">
-        <p>Olá, NOME_API</p><!--arrumar o nome automaticamente-->
+        <p>Olá, {{ name }}</p>
     </div>
     <div id="roules">
-        <p>Orientador</p><!--arrumar o roule automaticamente-->
+        <p>{{ role }}</p>
     </div>
     <div id="botoes">
-        <button mat-raised-button>Ver Detalhes</button>
+        <button mat-raised-button (click)="goToPage()">Ver Detalhes</button>
     </div>
 </body>

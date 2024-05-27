@@ -7,8 +7,11 @@ import { Observable } from 'rxjs'
 })
 export class UsersDataService {
   urlBase: string = "https://github-actions-service-smc757oxwq-uc.a.run.app/api/v1";
+  private dataArray: any[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.dataArray = [];
+  }
 
   tryLogin(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.urlBase + '/auth/login', {
@@ -40,6 +43,7 @@ export class UsersDataService {
       }
     )
   }
+
   handleAdm(bearer: string){
     const headers = new HttpHeaders({
       'Authorization': bearer
@@ -50,6 +54,14 @@ export class UsersDataService {
         headers: headers 
       }
     )
+  }
+
+  setTeams(data: any[]){
+    this.dataArray = data;
+  }
+
+  getTeams(){
+    return this.dataArray;
   }
 
 }

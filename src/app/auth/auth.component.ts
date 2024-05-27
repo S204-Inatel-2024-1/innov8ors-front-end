@@ -32,19 +32,11 @@ export class AuthComponent {
         this.repos = response;
         this.role = response["User"]["role"];
         this.name = response["User"]["email"];
-        this.bearer = response["Bearer"]
+        this.bearer = response["Bearer"];
 
-        if(this.role == '[ROLE_ADMIN]'){
-          this.router.navigate(['/adm', this.name]);
-        }else{
-          if(this.role == '[ROLE_ADVISOR]'){
-            this.router.navigate(['/advisor', this.bearer]);
-          }else{
-            this.router.navigate(['/student', this.bearer]);
-          }
-        }
+        this.router.navigate(['/interm-screen', this.bearer, this.name, this.role]);
       },
-      (error) => {                              //error() callback
+      (error) => {
         console.error('Request failed with error')
         this.errorMessage = error;
         this.loading = false;

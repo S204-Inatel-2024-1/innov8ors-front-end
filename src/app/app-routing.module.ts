@@ -11,12 +11,12 @@ import { HelpPageComponent } from './help-page/help-page.component';
 
 const routes: Routes = [    
     { path: 'auth', component: AuthComponent },
-    { path: 'advisor/:bearer', component: AdvisorComponent },
-    { path: 'student/:bearer', component: StudentComponent },
+    { path: 'advisor/:phaseName', component: AdvisorComponent },
+    { path: 'student/', component: StudentComponent },
     { path: 'adm/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
     { path: 'create-proj', component:ProjCreatorComponent},
-    { path: 'interm-screen', component:IntermScreenComponent},
+    { path: 'interm-screen/:bearer/:name/:role', component:IntermScreenComponent},
     { path: 'help-page', component:HelpPageComponent}
 ];
 
