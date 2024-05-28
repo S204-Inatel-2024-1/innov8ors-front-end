@@ -48,16 +48,13 @@ export class IntermScreenComponent {
         .subscribe(
           (response) => {    
             console.log(response)
+            this.router.navigate(['/student']);
           },
           (error) => {                              
             console.error('Request failed with error')
             this.errorMessage = error;
             this.loading = false;
-          },
-          () => {                                 
-            console.log('Request completed')      
-            this.loading = false; 
-          })
+          });
     }
 
   goToPage() {

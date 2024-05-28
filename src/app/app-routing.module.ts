@@ -12,7 +12,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 const routes: Routes = [    
     { path: 'auth', component: AuthComponent },
     { path: 'advisor/:phaseName', component: AdvisorComponent },
-    { path: 'student/', component: StudentComponent },
+    { path: 'student', component: StudentComponent },
     { path: 'adm/:bearer/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
     { path: 'create-proj/:bearer', component:ProjCreatorComponent},

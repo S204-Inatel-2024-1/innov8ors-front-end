@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
 import { UsersDataService } from '../services/users-data.service';
+import { HttpResponse } from '@angular/common/http';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-proj-creator',
@@ -21,7 +23,11 @@ export class ProjCreatorComponent {
   emailAdv:string = '';
   loading: boolean = false;
   errorMessage:string = '';
-  
+  attempt: boolean = false;
+  not_created: boolean = false;
+  mode: ProgressSpinnerMode = 'indeterminate';
+  color = 'primary';
+
   constructor(private userDataService: UsersDataService, private router: ActivatedRoute) {}
   bearer = String(this.router.snapshot.paramMap.get('bearer'));
 
@@ -53,15 +59,15 @@ export class ProjCreatorComponent {
 
   saveProject(){
     this.loading = true;
-    console.log(this.bearer);
-    this.userDataService.tryUpdate(this.jsonProj, this.bearer).subscribe(
-      (response: any) =>{
-        console.log(response);
-        this.loading = false;
-      },
-      (error) => {
-        console.error('Request failed with error')
-        this.errorMessage = error;
+    console.log('caiu na função')
+    this.userDataService.tryCreate(this.jsonProj, this.bearer).subscribe(
+      (response: HttpResponse<any>) =>{
+        if(response.status === 201){
+          this.attempt = true;
+        }else{
+          console.log(response);
+          this.not_created = true;
+        }
         this.loading = false;
       });
   }

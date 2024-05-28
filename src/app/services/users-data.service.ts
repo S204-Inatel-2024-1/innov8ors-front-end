@@ -21,25 +21,13 @@ export class UsersDataService {
     })
   }
 
-  tryUpdate(jsonData:any, bearer:string):Observable<any>{
+  tryCreate(jsonData:any, bearer:string):Observable<any>{
+    console.log('bearer', bearer)
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${bearer}`
     });
-    const json = {
-      "teamName": "teste",
-      "members": [
-        {
-          "name": "ola",
-          "email": "ola@ola"
-        }
-      ],
-      "advisor": {
-        "name": "teste",
-        "email": "teset2"
-      }
-    }
 
-    return this.http.post<any>(this.urlBase + '/adm/teams/register', json, {headers:headers})
+    return this.http.post<any>(this.urlBase + '/adm/teams/register', jsonData, {headers:headers})
   }
 
   handleAdvisor(bearer:string){
@@ -56,7 +44,7 @@ export class UsersDataService {
 
   handleStudent(bearer: string){
     const headers = new HttpHeaders({
-      'Authorization': bearer
+      'Authorization': `Bearer ${bearer}`
     });
     return this.http.get<any>(
       this.urlBase + '/member',
@@ -68,7 +56,7 @@ export class UsersDataService {
 
   handleAdm(bearer: string){
     const headers = new HttpHeaders({
-      'Authorization': bearer
+      'Authorization': `Bearer ${bearer}`
     });
     return this.http.get<any>(
       this.urlBase + '/adm',
