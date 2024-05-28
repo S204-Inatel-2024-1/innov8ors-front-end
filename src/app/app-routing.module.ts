@@ -8,16 +8,18 @@ import { NgModule } from '@angular/core';
 import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
 import { IntermScreenComponent } from './interm-screen/interm-screen.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { ProjDetailsComponent } from './proj-details/proj-details.component';
 
 const routes: Routes = [    
     { path: 'auth', component: AuthComponent },
     { path: 'advisor/:phaseName', component: AdvisorComponent },
-    { path: 'student', component: StudentComponent },
+    { path: 'student/:phaseName', component: StudentComponent },
     { path: 'adm/:bearer/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
-    { path: 'create-proj/:bearer', component:ProjCreatorComponent},
-    { path: 'interm-screen/:bearer/:name/:role', component:IntermScreenComponent},
-    { path: 'help-page', component:HelpPageComponent}
+    { path: 'create-proj/:bearer', component:ProjCreatorComponent },
+    { path: 'interm-screen/:bearer/:name/:role', component:IntermScreenComponent },
+    { path: 'help-page', component:HelpPageComponent },
+    { path: 'proj-details', component:ProjDetailsComponent }
 ];
 
 @NgModule({

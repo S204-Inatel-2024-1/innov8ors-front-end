@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
 import { IntermScreenComponent } from './interm-screen/interm-screen.component';
 import { HelpPageComponent } from './help-page/help-page.component';
+import { ProjDetailsComponent } from './proj-details/proj-details.component';
 
 const materialModules = [
   CommonModule,
@@ -40,7 +41,7 @@ const materialModules = [
     ...materialModules,
   ],
   providers: [],
-  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent ],
+  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent, ProjDetailsComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -8,4 +8,11 @@
     <div id="botoes">
         <button mat-raised-button (click)="goToPage()">Ver Detalhes</button>
     </div>
+    <div class="spinner">
+    <mat-progress-spinner
+      *ngIf = "loading"
+      [color]="color"
+      [mode]="mode">
+  </mat-progress-spinner>
+</div>
 </body>

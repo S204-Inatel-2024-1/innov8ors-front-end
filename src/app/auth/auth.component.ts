@@ -17,8 +17,8 @@ export class AuthComponent {
   repos: string[] = [];
   role: string = '';
   name: string = '';
-  color = 'primary';
   bearer = '';
+  color = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
   nameController = new FormControl('', Validators.required);
   passController = new FormControl('', Validators.required);

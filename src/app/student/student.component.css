@@ -14,7 +14,9 @@ body{
     font-size: 30px;
 	margin: auto;
 	text-align: left;
+  line-height: 100%;
 }
+
 #dados_projeto, #membros, #entregas{
     padding: 12px 30px;
     background: linear-gradient(
@@ -25,4 +27,9 @@ body{
     font-size: 15px;
 	  margin: auto;
 	  text-align: left;
+}
+
+.mat-fetincolor{
+  background-color: #5f98ee;
+  color: #ffffff;
 }

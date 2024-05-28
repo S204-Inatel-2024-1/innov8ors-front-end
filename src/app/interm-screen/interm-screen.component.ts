@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { UsersDataService } from '../services/users-data.service';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-interm-screen',
@@ -15,6 +16,9 @@ export class IntermScreenComponent {
   role = this.route.snapshot.paramMap.get('role');
   loading: boolean = false;
   errorMessage: string = '';
+  // Progress Spinner
+  color = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
 
   handleAdvisor(bearer: any){
       let phaseName = '';
@@ -44,11 +48,16 @@ export class IntermScreenComponent {
     handleStudent(bearer: any){
       this.loading = true;
       this.errorMessage = "";
+      let phaseName = '';
+      let teams = [];
       this.userDataService.handleStudent(bearer)
         .subscribe(
           (response) => {    
             console.log(response)
-            this.router.navigate(['/student']);
+            teams = response["teams"];
+            phaseName = response["fetinPhase"]["phaseName"];
+            this.userDataService.setTeams(teams);
+            this.router.navigate(['/student', phaseName]);
           },
           (error) => {                              
             console.error('Request failed with error')

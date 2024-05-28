@@ -19,10 +19,19 @@ export class AdvisorComponent {
   phaseName = String(this.route.snapshot.paramMap.get('phaseName'));
   teams = this.userDataService.getTeams();
   // Obtendo dados
-  id = this.teams[0]["id"];
-  name = this.teams[0]["name"];
-  advisorName = this.teams[0]["advisor"]["name"];
-  status = this.teams[0]["active"];
+  id: number[] = [];
+  name: number[] = [];
+  advisorName: number[] = [];
+  status: number[] = [];
+
+  ngOnInit() {
+    for (var i in this.teams) {
+      this.id[i] = this.teams[i]["id"];
+      this.name[i] = this.teams[i]["name"];
+      this.advisorName[i] = this.teams[0]["advisor"]["name"];
+      this.status[i] = this.teams[0]["active"];
+    }
+  }
 
   panelOpened() {
     this.panelOpenState = true;

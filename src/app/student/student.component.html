@@ -1,20 +1,21 @@
 <body>
-  <div id="nome">Olá, {{ name }}!</div>
+  <div id="nome">Fase atual: {{ phaseName }}</div>
 
 <mat-accordion>
   
   <div id="dados_projeto">
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let team of teams; let i = index">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Dados do time 
+          Dados do time {{i+1}}
         </mat-panel-title>
       </mat-expansion-panel-header>
   
-      <p>ID</p>
-      <p>Titulo</p>
-      <p>Orientador</p>
-      <p>Status</p>
+      <p>ID: {{ id[i] }}</p>
+      <p>Titulo: {{ name[i] }}</p>
+      <p>Orientador: {{ advisorName[i] }}</p>
+      <p>Ativo: {{ status[i] }}</p>
+      <button mat-raised-button color="fetincolor" (click)="seeDetails()">Mais detalhes</button>
     </mat-expansion-panel>
   </div>
 
@@ -31,23 +32,6 @@
      <p>Membro 3</p>
      <p>Membro 4</p>
   
-    </mat-expansion-panel>
-  </div>
-
-  <div id="entregas">
-    <mat-expansion-panel  (opened)="panelOpenState = true"
-                        (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Entregas e prazos
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <p>Entrega 1</p>
-    <p>Entrega 2</p>
-    <p>Entrega 3</p>
-    <p>Entrega 4</p>
-
     </mat-expansion-panel>
   </div>
 
