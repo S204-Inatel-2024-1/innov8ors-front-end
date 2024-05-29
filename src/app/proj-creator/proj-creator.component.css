@@ -28,7 +28,16 @@ body{
     margin-right: auto;
     margin-left: auto;
   }
+
   .mat-fetincolor{
     background-color: #5f98ee;
     color: #ffffff;
+  }
+
+  .textInfo{
+    color: red;
+  }
+
+  .endPage{
+    margin-top: 5%;
   }

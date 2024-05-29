@@ -52,12 +52,17 @@
             <input matInput>
         </mat-form-field>
         <button mat-raised-button color="fetincolor" (click)="saveProject()">Salvar</button>
-        <p style="color: red" *ngIf="attempt">Usuário criado com sucesso!</p>
-        <p style="color: red" *ngIf="not_created">Erro ao criar o usuário</p>
+        <div class="endPage">
+        <button mat-raised-button color="fetincolor" (click)="goBack()">Voltar</button>
+        </div>
+        <div class="endPage">
+        <p class="textInfo" *ngIf="attempt">Usuário criado com sucesso!</p>
+        <p class="textInfo" *ngIf="not_created">Erro ao criar o usuário</p>
         <mat-progress-spinner
         *ngIf="loading"
           [color]="color"
           [mode]="mode">
       </mat-progress-spinner>
+    </div>
     </div>
 </body>

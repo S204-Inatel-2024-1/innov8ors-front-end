@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UsersDataService } from '../services/users-data.service';
 import { HttpResponse } from '@angular/common/http';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-proj-creator',
@@ -28,7 +29,7 @@ export class ProjCreatorComponent {
   mode: ProgressSpinnerMode = 'indeterminate';
   color = 'primary';
 
-  constructor(private userDataService: UsersDataService, private router: ActivatedRoute) {}
+  constructor(private userDataService: UsersDataService, private router: ActivatedRoute, private location: Location) {}
   bearer = String(this.router.snapshot.paramMap.get('bearer'));
 
   jsonProj ={
@@ -62,14 +63,21 @@ export class ProjCreatorComponent {
     console.log('caiu na função')
     this.userDataService.tryCreate(this.jsonProj, this.bearer).subscribe(
       (response: HttpResponse<any>) =>{
-        if(response.status === 201){
+        console.log('Response: ', response);
+      },
+      (error) => { // Por algum motivo, o Angular trata Status 201 como erro
+        if(error.status === 201){
           this.attempt = true;
-        }else{
-          console.log(response);
+        }else{ // Projeto não criado
           this.not_created = true;
         }
         this.loading = false;
-      });
+      }
+    );
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

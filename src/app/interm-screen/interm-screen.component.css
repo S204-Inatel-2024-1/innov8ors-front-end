@@ -14,8 +14,9 @@ body{
     margin: auto;
     padding: 30px;
     text-align: left;
+    line-height: 100%;
 }
-#roules{
+#roles{
     font-size: 27px;
     padding: 25px;
     text-align: center;
