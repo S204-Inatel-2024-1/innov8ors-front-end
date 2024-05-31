@@ -14,6 +14,7 @@ export class IntermScreenComponent {
   name = this.route.snapshot.paramMap.get('name');
   bearer = this.route.snapshot.paramMap.get('bearer');
   role = this.route.snapshot.paramMap.get('role');
+  errorAt:boolean = false;
   loading: boolean = false;
   errorMessage: string = '';
   // Progress Spinner
@@ -25,6 +26,7 @@ export class IntermScreenComponent {
       let teams = [];
       this.loading = true;
       this.errorMessage = "";
+      this.errorAt = false;
       this.userDataService.handleAdvisor(bearer)
         .subscribe(
           (response) => {    
@@ -35,7 +37,8 @@ export class IntermScreenComponent {
             this.router.navigate(['/advisor', phaseName]);
           },
           (error) => {                              
-            console.error('Request failed with error')
+            console.error('Request failed with error');
+            this.errorAt = true;
             this.errorMessage = error;
             this.loading = false;
           },
@@ -50,10 +53,10 @@ export class IntermScreenComponent {
       this.errorMessage = "";
       let phaseName = '';
       let teams = [];
+      this.errorAt = false;
       this.userDataService.handleStudent(bearer)
         .subscribe(
           (response) => {    
-            console.log(response)
             teams = response["teams"];
             phaseName = response["fetinPhase"]["phaseName"];
             this.userDataService.setTeams(teams);
@@ -63,6 +66,7 @@ export class IntermScreenComponent {
             console.error('Request failed with error')
             this.errorMessage = error;
             this.loading = false;
+            this.errorAt = true;
           });
     }
 

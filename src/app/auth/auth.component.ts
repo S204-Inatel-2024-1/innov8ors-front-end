@@ -26,6 +26,7 @@ export class AuthComponent {
   constructor(private router: Router, private userDataService: UsersDataService) {}
 
   verificarUser() {
+    this.attempt = false;
     this.loading = true;
     this.userDataService.tryLogin(this.textoUsuario, this.senhaUsuario).subscribe(
       (response: any) =>{
