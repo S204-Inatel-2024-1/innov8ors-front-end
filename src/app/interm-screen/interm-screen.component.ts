@@ -70,9 +70,27 @@ export class IntermScreenComponent {
           });
     }
 
+  handleAdm(bearer: any){
+    let teams = {}
+    this.errorAt = false;
+    this.userDataService.handleAdm(bearer)
+        .subscribe(
+          (response) => {    
+            teams = response["teams"];
+            console.log(teams)
+            this.router.navigate(['/adm', this.bearer, this.name]);
+          },
+          (error) => {                              
+            console.error('Request failed with error')
+            this.errorMessage = error;
+            this.loading = false;
+            this.errorAt = true;
+          });
+    }
+
   goToPage() {
     if (this.role == '[ROLE_ADMIN]') {
-      this.router.navigate(['/adm', this.bearer, this.name]);
+      this.handleAdm(this.bearer);
     } else {
       if (this.role == '[ROLE_ADVISOR]') {
         this.handleAdvisor(this.bearer);
