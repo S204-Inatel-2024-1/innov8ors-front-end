@@ -41,7 +41,7 @@ const materialModules = [
     ...materialModules,
   ],
   providers: [],
-  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent, ProjDetailsComponent ],
+  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

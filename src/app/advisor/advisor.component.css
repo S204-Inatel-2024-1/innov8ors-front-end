@@ -39,3 +39,8 @@ ul li a{
 	text-align: left;
   height: 100%;
 }
+#projetos li{
+  align-items: left;
+  text-align: left;
+  margin-left: 0;
+}
