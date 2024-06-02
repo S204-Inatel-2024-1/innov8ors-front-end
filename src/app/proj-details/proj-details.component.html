@@ -1,40 +1,40 @@
 <body>
     <div id="Fundo">
             <p id="ID">Detalhes do Projeto</p>
-            <p id="Titulo">Innov8ors</p>
-
+            <p id="Titulo">{{ name }}</p>
 
         <div id="ID">
-            <p>ID:</p>
+            <p>ID: {{ id }}</p>
         </div>
 
         <div id="Expansion">
+            <h1 style="color: black">Membros</h1>
             <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel *ngFor="let membro of membros; let i = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Membros
+                            Membro {{i+1}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <li>Nome Membro</li>
-                        <li>Nome Membro2</li>
+                        <li>Nome: {{ member_names[i] }}</li>
+                        <li>Email: {{ member_emails[i] }}</li>
                     </ul>
                 </mat-expansion-panel>
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <h1 style="color: black">Notas</h1>
+                <mat-expansion-panel *ngFor="let nota of notas; let i = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Notas
+                            {{ names_phase[i] }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <li>Nota</li>
-                        <li>Nota2</li>
+                        <li>Nota: {{ notas_phase[i] }}</li>
                     </ul>
                 </mat-expansion-panel>
             </mat-accordion>
             <div class="bot">
-                <button mat-raised-button color="fetincolor">Voltar</button>
+                <button mat-raised-button color="fetincolor" (click)="goBack()">Voltar</button>
             </div>
         </div>
 

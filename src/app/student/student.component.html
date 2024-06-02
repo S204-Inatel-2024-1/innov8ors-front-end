@@ -4,7 +4,7 @@
 <mat-accordion>
   
   <div id="dados_projeto">
-    <mat-expansion-panel *ngFor="let team of teams; let i = index">
+    <mat-expansion-panel *ngFor="let team of teams; let i = index" class="dados_proj_space">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Dados do time {{i+1}}
@@ -15,23 +15,7 @@
       <p>Titulo: {{ name[i] }}</p>
       <p>Orientador: {{ advisorName[i] }}</p>
       <p>Ativo: {{ status[i] }}</p>
-      <button mat-raised-button color="fetincolor" (click)="seeDetails()">Mais detalhes</button>
-    </mat-expansion-panel>
-  </div>
-
-  <div id="membros">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Membros
-       </mat-panel-title>
-      </mat-expansion-panel-header>
-  
-     <p>Membro 1</p>
-     <p>Membro 2</p>
-     <p>Membro 3</p>
-     <p>Membro 4</p>
-  
+      <button mat-raised-button color="fetincolor" (click)="seeDetails(i)">Mais detalhes</button>
     </mat-expansion-panel>
   </div>
 

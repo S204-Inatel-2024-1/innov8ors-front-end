@@ -12,12 +12,15 @@ import { MatButton } from '@angular/material/button';
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
+
 export class StudentComponent {
   constructor(private route: ActivatedRoute, private userDataService: UsersDataService, private router: Router) { }
   panelOpenState: boolean = false;
   // Obtendo dados
   teams = this.userDataService.getTeams();
   phaseName = String(this.route.snapshot.paramMap.get('phaseName'));
+  bearer = String(this.route.snapshot.paramMap.get('bearer'));
+  loading: boolean = false;
 
   id: number[] = [];
   name: number[] = [];
@@ -28,13 +31,24 @@ export class StudentComponent {
     for (var i in this.teams) {
       this.id[i] = this.teams[i]["id"];
       this.name[i] = this.teams[i]["name"];
-      this.advisorName[i] = this.teams[0]["advisor"]["name"];
-      this.status[i] = this.teams[0]["active"];
+      this.advisorName[i] = this.teams[i]["advisor"]["name"];
+      this.status[i] = this.teams[i]["active"];
     }
   }
 
-  seeDetails(){
-    this.router.navigate(['/proj-details']);
+  seeDetails(i: number){
+    this.loading = true;
+    this.userDataService.handleGet(this.bearer, '/member/'+ this.id[i]).subscribe(
+      (response) => {    
+        this.loading = false;
+        this.userDataService.setTeamsDetails(response);
+        this.router.navigate(['/proj-details', this.id[i]])
+      },
+      (error) => {                              
+        this.loading = false;
+        console.log(error);
+      }
+    );
   }
 
 }

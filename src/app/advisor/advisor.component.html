@@ -19,10 +19,10 @@
         </mat-expansion-panel-header>
         <p>Fase atual: {{phaseName}}</p>
       </mat-expansion-panel>
-        <mat-expansion-panel *ngFor="let team of teams" (opened)="panelOpened()" (closed)="panelOpenState = false">
+        <mat-expansion-panel *ngFor="let team of teams; let i = index" (opened)="panelOpened()" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Time 1
+              Time {{i+1}}
             </mat-panel-title>
           </mat-expansion-panel-header>
 

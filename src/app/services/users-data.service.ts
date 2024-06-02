@@ -8,6 +8,7 @@ import { Observable } from 'rxjs'
 export class UsersDataService {
   urlBase: string = "https://github-actions-service-smc757oxwq-uc.a.run.app/api/v1";
   private dataArray: any[];
+  dataJson = {};
 
   constructor(private http: HttpClient) {
     this.dataArray = [];
@@ -66,6 +67,18 @@ export class UsersDataService {
     )
   }
 
+  handleGet(bearer: String, endPoint: String){
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${bearer}`
+    });
+    return this.http.get<any>(
+      this.urlBase + endPoint,
+      { 
+        headers: headers 
+      }
+    )
+  }
+
   // Configurações de array
   setTeams(data: any[]){
     this.dataArray = data;
@@ -73,6 +86,14 @@ export class UsersDataService {
 
   getTeams(){
     return this.dataArray;
+  }
+
+  setTeamsDetails(data: any){
+    this.dataJson = data;
+  }
+
+  getTeamsDetails(){
+    return this.dataJson;
   }
 
 }
