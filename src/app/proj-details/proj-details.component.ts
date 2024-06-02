@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -7,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   standalone: true,
   imports: [
     MatExpansionModule, 
-    MatFormFieldModule],
+    MatFormFieldModule,MatButton],
   templateUrl: './proj-details.component.html',
   styleUrl: './proj-details.component.css'
 })

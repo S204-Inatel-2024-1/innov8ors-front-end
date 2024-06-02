@@ -1,18 +1,16 @@
 <body>
     <div id="Fundo">
-        <div id="Cabecalho">
-            <p>Detalhes do Projeto</p>
+            <p id="ID">Detalhes do Projeto</p>
             <p id="Titulo">Innov8ors</p>
-        </div>
-        
+
+
         <div id="ID">
             <p>ID:</p>
         </div>
-        
+
         <div id="Expansion">
             <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                (closed)="panelOpenState = false">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Membros
@@ -23,8 +21,7 @@
                         <li>Nome Membro2</li>
                     </ul>
                 </mat-expansion-panel>
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                (closed)="panelOpenState = false">
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Notas
@@ -36,7 +33,10 @@
                     </ul>
                 </mat-expansion-panel>
             </mat-accordion>
+            <div class="bot">
+                <button mat-raised-button color="fetincolor">Voltar</button>
+            </div>
         </div>
-        
+
     </div>
 </body>

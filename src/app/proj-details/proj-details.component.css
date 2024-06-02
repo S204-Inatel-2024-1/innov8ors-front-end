@@ -21,24 +21,22 @@ body{
     margin-left: auto;
 }
 #Cabecalho{
-    font-size: 25px;
-    padding: 25px;
+    font-size: 20px;
     text-align: center;
     align-items: center;
     color: black;
     line-height: 32px;
+    margin-bottom: 1%;
 }
 #Titulo{
-    font-size: 36px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #5f98ee;
 }
 #ID{
     font-size: 21px;
     display: flex;
-    padding: 25px;
     color: black;
-    margin: auto;
-    justify-content: flex-start;
-    width: 100%;
 }
 #ID p{
     text-align: left;
@@ -54,3 +52,13 @@ body{
 #Expansion ul{
     padding-left: 10px;
 }
+
+.bot{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.mat-fetincolor{
+    background-color: #5f98ee;
+    color: #ffffff;
+  }
