@@ -6,19 +6,20 @@
           target="_blank">Manual do Orientador</a></li>
     </ul>
   </div>
-  <div id="titulo">Times Orientados</div>
+  <p class="titulo">Fases da Fetin</p>
 
   <mat-accordion>
-
-    <div id="projetos">
+    <div class="projetos">
       <mat-expansion-panel (opened)="panelOpened()" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Fases da Fetin
+            Fase atual
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>Fase atual: {{phaseName}}</p>
+        <p>{{phaseName}}</p>
       </mat-expansion-panel>
+
+      <p id="titulo-times">Times orientados</p>
         <mat-expansion-panel *ngFor="let team of teams; let i = index" (opened)="panelOpened()" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -30,38 +31,16 @@
           <p>Nome: {{name}}</p>
           <p>Ativo: {{status}}</p>
           <p>Orientador: {{advisorName}}</p>
-
-          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Membros
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <ul>
-              <li>Nome Membro</li>
-              <li>Nome Membro</li>
-              <li>Nome Membro</li>
-              <li>Nome Membro</li>
-            </ul>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Entregas e prazos
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <ol>
-              <li>Conteudo - Data</li>
-              <li>Conteudo - Data</li>
-              <li>Conteudo - Data</li>
-              <li>Conteudo - Data</li>
-            </ol>
-          </mat-expansion-panel>
-
+          <button mat-raised-button color="fetincolor" (click)="seeDetails(i)">Mais detalhes</button>
         </mat-expansion-panel>
+        <div id="spinner">
+        <mat-progress-spinner
+          *ngIf="loading"
+          [color]="color"
+          [mode]="mode">
+      </mat-progress-spinner>
+      <p *ngIf="errorAt" class="erro">Um erro ocorreu ao obter os dados. Por favor, tente novamente! </p>
+    </div>
     </div>
 
   </mat-accordion>

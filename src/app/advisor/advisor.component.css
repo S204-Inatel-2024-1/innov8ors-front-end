@@ -1,46 +1,80 @@
-body{
-  background: linear-gradient(
-    to right,
-    #5f98ee,
-    #20EB9A);
-  color: #ffffff;
-  padding: 0;
+body {
+  background: linear-gradient(to right,
+      #5f98ee,
+      #20EB9A);
   margin: 0;
+  padding: 0;
+  min-height: 150vh;
 }
-#links{
+
+html{
+  color: #5f98ee;
+}
+
+#links {
   display: flex;
   font-size: 20px;
   margin: auto;
   justify-content: space-between;
 }
-#links ul{
+
+#links ul {
   display: flex;
   margin-left: 0;
   align-items: center;
   list-style: none;
 }
-ul li{
+
+ul li {
   text-align: center;
 }
-ul li a{
+
+ul li a {
   color: #ffffff;
   text-decoration: none;
 }
-#titulo{
-  padding: 20px;
+
+.titulo {
+  padding: 30px;
   font-size: 30px;
-	margin: auto;
-	text-align: left;
+  text-align: left;
+  margin-bottom: -7%;
+  color: #ffffff;
 }
-#projetos{
+
+.projetos {
   padding: 25px;
   font-size: 15px;
-	margin: auto;
-	text-align: left;
-  height: 100%;
+  text-align: left;
 }
-#projetos li{
+
+#projetos li {
   align-items: left;
   text-align: left;
   margin-left: 0;
+}
+
+#titulo-times {
+  font-size: 30px;
+  text-align: left;
+  margin-top: 7%;
+  color: #ffffff;
+}
+
+#spinner {
+  margin-top: 10%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-fetincolor {
+  background-color: #5f98ee;
+  color: #ffffff;
+}
+
+.erro {
+  text-align: center;
+  color: red;
 }

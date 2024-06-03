@@ -12,7 +12,7 @@ import { ProjDetailsComponent } from './proj-details/proj-details.component';
 
 const routes: Routes = [    
     { path: 'auth', component: AuthComponent },
-    { path: 'advisor/:phaseName', component: AdvisorComponent },
+    { path: 'advisor/:phaseName/:bearer', component: AdvisorComponent },
     { path: 'student/:phaseName/:bearer', component: StudentComponent },
     { path: 'adm/:bearer/:name', component:AdmComponent },
     { path: 'updater', component:UpdaterComponent },
