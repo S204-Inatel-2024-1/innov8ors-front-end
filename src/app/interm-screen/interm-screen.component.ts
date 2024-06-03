@@ -71,14 +71,14 @@ export class IntermScreenComponent {
     }
 
   handleAdm(bearer: any){
-    let teams = {}
     this.errorAt = false;
-    this.userDataService.handleAdm(bearer)
+    this.loading = true;
+    this.userDataService.handleGet(bearer, '/adm/teams')
         .subscribe(
           (response) => {    
-            teams = response["teams"];
-            console.log(teams)
-            this.router.navigate(['/adm', this.bearer, this.name]);
+            this.userDataService.setTeamsDetails(response);
+            this.loading = false;
+            this.router.navigate(['/adm-teams', this.bearer, this.name]);
           },
           (error) => {                              
             console.error('Request failed with error')

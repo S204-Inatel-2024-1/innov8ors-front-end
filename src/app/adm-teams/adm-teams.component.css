@@ -1,3 +1,10 @@
+body{
+  background: linear-gradient(
+    to right,
+    #5f98ee,
+    #20EB9A);
+    height: 250vh;
+}
 .but-row{
     display: flex;
     gap: 15%;

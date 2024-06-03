@@ -55,18 +55,6 @@ export class UsersDataService {
     )
   }
 
-  handleAdm(bearer: string){
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${bearer}`
-    });
-    return this.http.get<any>(
-      this.urlBase + '/adm',
-      { 
-        headers: headers 
-      }
-    )
-  }
-
   handleGet(bearer: String, endPoint: String){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${bearer}`
