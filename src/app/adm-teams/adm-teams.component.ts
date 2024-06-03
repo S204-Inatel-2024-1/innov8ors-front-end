@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink, RouterLinkActive, RouterOutlet, Router, ActivatedRoute } from '@angular/router';
 import { UsersDataService } from '../services/users-data.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
@@ -19,7 +21,9 @@ import { CommonModule } from '@angular/common';
     RouterOutlet, 
     RouterLink, 
     RouterLinkActive,
-    CommonModule],
+    CommonModule,
+    FormsModule,
+    MatInputModule],
   templateUrl: './adm-teams.component.html',
   styleUrl: './adm-teams.component.css'
 })
@@ -31,6 +35,7 @@ export class AdmComponent {
   bearer = this.route.snapshot.paramMap.get('bearer');
   teams = this.userDataService.getTeamsDetails();
   teams_names:any;
+  idTeam:string = '';
 
 
   ngOnInit(){

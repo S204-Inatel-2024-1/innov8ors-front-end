@@ -1,15 +1,14 @@
 <body>
   <div id="adm">Ola, {{name}}
-  <div class="but-row">
-    <button mat-raised-button (click)="createProject()">Criar projeto</button>
-    <button mat-raised-button>Importar planilha</button>
-  </div>
+    <div class="but-row">
+      <button mat-raised-button (click)="createProject()">Criar projeto</button>
+      <button mat-raised-button>Importar planilha</button>
+    </div>
   </div>
 
   <mat-accordion>
-    <div id="dados">
-      <mat-expansion-panel id="test" (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
+    <div class="dados">
+      <mat-expansion-panel id="mat1" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Projetos cadastrados
@@ -18,8 +17,32 @@
         <div *ngFor="let team of teams_names">
           <p> • {{ team }}</p>
         </div>
-      <button mat-raised-button color="fetincolor" (click)="updateData()">Atualizar dados</button>
       </mat-expansion-panel>
+
+      <mat-expansion-panel id="mat2" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Atualizar dados
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Insira o ID do time </mat-label>
+          <input matInput [(ngModel)]="idTeam">
+        </mat-form-field>
+        <button mat-raised-button color="fetincolor" (click)="updateData()">Submeter</button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel id="mat3" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Fases da Fetin
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Fase 1</p>
+        <p>Fase 2</p>
+        <p>Fase 3</p>
+      </mat-expansion-panel>
+      
     </div>
   </mat-accordion>
 </body>

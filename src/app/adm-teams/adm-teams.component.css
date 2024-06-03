@@ -21,7 +21,7 @@ body{
 	margin: auto;
 	text-align: left;
 }
-#dados{
+.dados{
     padding: 25px;
     background: linear-gradient(
       to right,
