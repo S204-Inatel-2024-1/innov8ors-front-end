@@ -50,7 +50,19 @@ export class AdmComponent {
   }
 
   updateData(){
-    this.router.navigate(['/updater']);
+    this.loading = true;
+    console.log(this.idTeam);
+    this.userDataService.handleGet(this.bearer, '/adm/teams/' + this.idTeam).subscribe(
+      (response) => {    
+        console.log(response);
+        this.userDataService.setTeamsDetails(response);
+        this.router.navigate(['/updater', this.bearer]);
+      },
+      (error) => {                              
+        this.loading = false;
+        console.log(error);
+      }
+    );
   }
   createProject(){
     this.router.navigate(['/create-proj', this.bearer])

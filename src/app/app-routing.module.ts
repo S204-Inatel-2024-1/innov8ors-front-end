@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: 'advisor/:phaseName/:bearer', component: AdvisorComponent },
     { path: 'student/:phaseName/:bearer', component: StudentComponent },
     { path: 'adm-teams/:bearer/:name', component:AdmComponent },
-    { path: 'updater', component:UpdaterComponent },
+    { path: 'updater/:bearer', component:UpdaterComponent },
     { path: 'create-proj/:bearer', component:ProjCreatorComponent },
     { path: 'interm-screen/:bearer/:name/:role', component:IntermScreenComponent },
     { path: 'help-page', component:HelpPageComponent },

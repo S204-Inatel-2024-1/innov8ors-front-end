@@ -69,6 +69,28 @@ export class UsersDataService {
     )
   }
 
+  handleDelete(bearer: String, endPoint: String){
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${bearer}`
+    });
+    return this.http.delete<any>(
+      this.urlBase + endPoint,
+      { 
+        headers: headers 
+      });
+  }
+
+  handlePost(bearer: String, endPoint:String, json:any){
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${bearer}`
+    });
+    return this.http.post<any>(
+      this.urlBase + endPoint,
+      { 
+        headers: headers 
+      }, json);
+  }
+
   // Configurações de array
   setTeams(data: any[]){
     this.dataArray = data;
