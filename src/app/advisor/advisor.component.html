@@ -1,54 +1,48 @@
 <body>
-  <div id="titulo">Projetos Orientados</div>
-
-<mat-accordion>
-  
-  <div id="projetos">
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          Titulo do Projeto 1
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <p>ID</p>
-    <p>Status</p>
-
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            Membros
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-        
-      <ul>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-        <li>Nome Membro</li>
-      </ul>
-    </mat-expansion-panel>
-
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Entregas e prazos
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <ol>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-        <li>Conteudo - Data</li>
-      </ol>
-    </mat-expansion-panel>
-
-  </mat-expansion-panel>
+  <div id="links">
+    <ul>
+      <li><a href="https://www.koalastothemax.com/" target="_blank">Avaliacao das Bancas</a></li>
+      <li><a href="https://www.mds.gov.br/webarquivos/arquivo/seguranca_alimentar/Edital/Manual%20orientador.pdf"
+          target="_blank">Manual do Orientador</a></li>
+    </ul>
   </div>
+  <p class="titulo">Fases da Fetin</p>
 
-</mat-accordion>
+  <mat-accordion>
+    <div class="projetos">
+      <mat-expansion-panel (opened)="panelOpened()" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Fase atual
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{phaseName}}</p>
+      </mat-expansion-panel>
+
+      <p id="titulo-times">Times orientados</p>
+        <mat-expansion-panel *ngFor="let team of teams; let i = index" (opened)="panelOpened()" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Time {{i+1}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <p>ID: {{id}}</p>
+          <p>Nome: {{name}}</p>
+          <p>Ativo: {{status}}</p>
+          <p>Orientador: {{advisorName}}</p>
+          <button mat-raised-button color="fetincolor" (click)="seeDetails(i)">Mais detalhes</button>
+        </mat-expansion-panel>
+        
+        <div id="spinner">
+        <mat-progress-spinner
+          *ngIf="loading"
+          [color]="color"
+          [mode]="mode">
+      </mat-progress-spinner>
+      <p *ngIf="errorAt" class="erro">Um erro ocorreu ao obter os dados. Por favor, tente novamente! </p>
+    </div>
+    </div>
+
+  </mat-accordion>
 </body>

@@ -5,25 +5,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ActivatedRoute } from '@angular/router';
 import { Location, CommonModule } from '@angular/common';
 import { UsersDataService } from '../services/users-data.service';
-import { FormsModule } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-updater',
+  selector: 'app-proj-details',
   standalone: true,
   imports: [
     MatExpansionModule, 
     MatFormFieldModule,MatButton,
-    CommonModule, 
-    FormsModule,
-    MatInput],
-  templateUrl: './updater.component.html',
-  styleUrl: './updater.component.css'
+    CommonModule],
+  templateUrl: './proj-details.component.html',
+  styleUrl: './proj-details.component.css'
 })
-export class UpdaterComponent {
+export class ProjDetailsComponent {
   constructor(private route: ActivatedRoute, private location: Location, private userDataService: UsersDataService) { }
   panelOpenState: boolean = false;
-  id = '';
+  id = this.route.snapshot.paramMap.get('i');
   json:any;
   name = '';
   membros = [];
@@ -33,19 +29,10 @@ export class UpdaterComponent {
   member_emails:string[] = [];
   member_names:string[] = [];
   phaseNames = [];
-  // Dados editáveis
-  memberName = '';
-  memberEmail = '';
-  phaseId = '';
-  newGrade = '';
-  removedMember = '';
-  bearer = String(this.route.snapshot.paramMap.get('bearer'));
-
 
   ngOnInit(){
     this.json = this.userDataService.getTeamsDetails();
     // Dados do json
-    this.id = this.json["teamId"];
     this.name = this.json["teamName"];
     this.membros = this.json["members"];
     this.notas = this.json["grades"];
@@ -64,33 +51,5 @@ export class UpdaterComponent {
 
   goBack(){
     this.location.back();
-  }
-
-  addMember(){
-    const path = '/adm/teams/' + this.id + '/members'
-    let json2 = {
-      name: this.memberName,
-      email: this.memberEmail
-    }
-    this.userDataService.handlePost(this.bearer, path, json2).subscribe(
-      (response) => {
-        console.log(response)
-      },
-      (error) => {      
-        console.log(error);
-      }
-    );
-  }
-
-  deleteMember(){
-    const path = '/adm/teams/' + this.id + '/members'
-    this.userDataService.handleDelete(this.bearer, path).subscribe(
-      (response) => {
-        console.log(response)
-      },
-      (error) => {      
-        console.log(error);
-      }
-    );
   }
 }

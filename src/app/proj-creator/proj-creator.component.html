@@ -1,0 +1,68 @@
+<body>
+    <div class="auth-style">
+        <div id="titulo">
+        <h2>Criar projeto</h2>
+    </div>
+        <mat-form-field>
+            <mat-label>Titulo</mat-label>
+            <input matInput [(ngModel)]="tituloProj">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Membro 1</mat-label>
+            <input matInput [(ngModel)]="membro1">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email 1</mat-label>
+            <input matInput [(ngModel)]="email1">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Membro 2</mat-label>
+            <input matInput [(ngModel)]="membro2">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email 2</mat-label>
+            <input matInput [(ngModel)]="email2">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Membro 3</mat-label>
+            <input matInput [(ngModel)]="membro3">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email 3</mat-label>
+            <input matInput [(ngModel)]="email3">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Membro 4</mat-label>
+            <input matInput [(ngModel)]="membro4">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email 4</mat-label>
+            <input matInput [(ngModel)]="email4">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Orientador</mat-label>
+            <input matInput [(ngModel)]="advisorName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email Orientador</mat-label>
+            <input matInput [(ngModel)]="emailAdv">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button mat-raised-button color="fetincolor" (click)="saveProject()">Salvar</button>
+        <div class="endPage">
+        <button mat-raised-button color="fetincolor" (click)="goBack()">Voltar</button>
+        </div>
+        <div class="endPage">
+        <p class="textInfo" *ngIf="attempt">Usuário criado com sucesso!</p>
+        <p class="textInfo" *ngIf="not_created">Erro ao criar o usuário</p>
+        <mat-progress-spinner
+        *ngIf="loading"
+          [color]="color"
+          [mode]="mode">
+      </mat-progress-spinner>
+    </div>
+    </div>
+</body>

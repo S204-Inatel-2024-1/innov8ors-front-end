@@ -1,0 +1,19 @@
+<body>
+    <div id="apresentacao">
+        <p>Olá, {{ name }}</p>
+    </div>
+    <div id="roles">
+        <p>{{ role }}</p>
+    </div>
+    <div id="botoes">
+        <button mat-raised-button (click)="goToPage()">Ver Detalhes</button>
+    </div>
+    <div class="spinner">
+    <mat-progress-spinner
+      *ngIf = "loading"
+      [color]="color"
+      [mode]="mode">
+  </mat-progress-spinner>
+  <p *ngIf="errorAt" class="erro">Um erro ocorreu ao obter os dados. Por favor, tente novamente! </p>
+</div>
+</body>

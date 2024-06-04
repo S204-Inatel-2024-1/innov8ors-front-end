@@ -1,28 +1,92 @@
-<div id="titulo"> Atualização de dados
-    <p class="titulo p">Mantenha em branco caso não queira atualizar um dado.</p>
-</div>
+<body>
+    <div id="Fundo">
+        <p id="ID">Detalhes do Projeto</p>
+        <p id="Titulo">{{ name }}</p>
 
-<div class="auth-style">
-    <mat-form-field>
-        <mat-label>ID do projeto</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Titulo</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Membros</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Orientador</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Status</mat-label>
-        <input matInput>
-    </mat-form-field>
-    <button mat-raised-button (click)="voltar()">Salvar</button>
-</div>
+        <div id="ID">
+            <p>ID: {{ id }}</p>
+        </div>
+        <div class="expansion">
+            <h1 style="color: black">Membros</h1>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let membro of membros; let i = index">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Membro {{i+1}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li>Nome: {{ member_names[i] }}</li>
+                        <li>Email: {{ member_emails[i] }}</li>
+                    </ul>
+                </mat-expansion-panel>
+                <h1 style="color: black">Notas</h1>
+                <mat-expansion-panel *ngFor="let nota of notas; let i = index">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ names_phase[i] }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li>Nota: {{ notas_phase[i] }}</li>
+                    </ul>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div class="bot">
+                <button mat-raised-button color="fetincolor" (click)="goBack()">Voltar</button>
+            </div>
+        </div>
+    </div>
 
+    <div class="expansion">
+        <mat-accordion>
+            <mat-expansion-panel class="expansion2">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Adicionar membro
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input matInput [(ngModel)]="memberName" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="memberEmail" type="text">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="addMember()">Submeter</button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="expansion2">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Adicionar nota
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>ID da fase</mat-label>
+                    <input matInput [(ngModel)]="phaseId" type="text">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Nota</mat-label>
+                    <input matInput [(ngModel)]="newGrade" type="text">
+                </mat-form-field>
+                <button mat-raised-button color="primary">Submeter</button>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="expansion2">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Remover membro
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field>
+                    <mat-label>Nome do membro</mat-label>
+                    <input matInput [(ngModel)]="removedMember" type="text" (click)="deleteMember()">
+                </mat-form-field>
+                <button mat-raised-button color="primary">Submeter</button>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+    </div>
+</body>

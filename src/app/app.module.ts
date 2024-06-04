@@ -8,33 +8,43 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ProjCreatorComponent } from './proj-creator/proj-creator.component';
+import { IntermScreenComponent } from './interm-screen/interm-screen.component';
+import { HelpPageComponent } from './help-page/help-page.component';
+import { ProjDetailsComponent } from './proj-details/proj-details.component';
+import { AdmFetinStagesComponent } from './adm-fetin-stages/adm-fetin-stages.component';
 
 const materialModules = [
   CommonModule,
   MatInputModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatProgressSpinnerModule,
+  MatExpansionModule
 ];
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ...materialModules,
-  ],
-  exports:[
+    ReactiveFormsModule,
+    FormsModule,
     ...materialModules
   ],
+  exports:[
+    ...materialModules,
+  ],
   providers: [],
-  declarations: [ AppComponent, AuthComponent ],
+  declarations: [ AppComponent, AuthComponent, ProjCreatorComponent, IntermScreenComponent, HelpPageComponent, AdmFetinStagesComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

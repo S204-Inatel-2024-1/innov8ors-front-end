@@ -1,0 +1,42 @@
+<body>
+    <div id="Fundo">
+            <p id="ID">Detalhes do Projeto</p>
+            <p id="Titulo">{{ name }}</p>
+
+        <div id="ID">
+            <p>ID: {{ id }}</p>
+        </div>
+
+        <div id="Expansion">
+            <h1 style="color: black">Membros</h1>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let membro of membros; let i = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Membro {{i+1}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li>Nome: {{ member_names[i] }}</li>
+                        <li>Email: {{ member_emails[i] }}</li>
+                    </ul>
+                </mat-expansion-panel>
+                <h1 style="color: black">Notas</h1>
+                <mat-expansion-panel *ngFor="let nota of notas; let i = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ names_phase[i] }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li>Nota: {{ notas_phase[i] }}</li>
+                    </ul>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div class="bot">
+                <button mat-raised-button color="fetincolor" (click)="goBack()">Voltar</button>
+            </div>
+        </div>
+
+    </div>
+</body>

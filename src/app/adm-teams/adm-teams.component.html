@@ -1,0 +1,39 @@
+<body>
+  <div id="adm">Ola, {{name}}
+    <div class="but-row">
+      <button mat-raised-button (click)="createProject()">Criar projeto</button>
+      <button mat-raised-button>Importar planilha</button>
+    </div>
+    <div class="but-row">
+      <button mat-raised-button (click)="checkStages()">Fases da Fetin</button>
+      </div>
+  </div>
+
+  <mat-accordion>
+    <div class="dados">
+      <mat-expansion-panel id="mat1" (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="space">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Projetos cadastrados
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngFor="let team of teams_names">
+          <p> • {{ team }}</p>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel id="mat2" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Atualizar dados
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>Insira o ID do time </mat-label>
+          <input matInput [(ngModel)]="idTeam" type="number" max="100" min="0">
+        </mat-form-field>
+        <button mat-raised-button color="fetincolor" (click)="updateData()">Submeter</button>
+      </mat-expansion-panel>
+    </div>
+  </mat-accordion>
+</body>
