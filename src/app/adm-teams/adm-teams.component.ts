@@ -32,8 +32,9 @@ export class AdmComponent {
 
   constructor(private router: Router, private route: ActivatedRoute, private userDataService: UsersDataService) {}
   name = this.route.snapshot.paramMap.get('name');
-  bearer = this.route.snapshot.paramMap.get('bearer');
+  bearer = String(this.route.snapshot.paramMap.get('bearer'));
   teams = this.userDataService.getTeamsDetails();
+  loading: boolean = false;
   teams_names:any;
   idTeam:string = '';
 
@@ -53,6 +54,20 @@ export class AdmComponent {
   }
   createProject(){
     this.router.navigate(['/create-proj', this.bearer])
+  }
+  checkStages(){
+    this.loading = true;
+    this.userDataService.handleGet(this.bearer, '/adm/fetin-stages').subscribe(
+      (response) => {    
+        this.loading = false;
+        this.userDataService.setFetinStages(response["phases"]);
+        this.router.navigate(['/adm-fetinStages']);
+      },
+      (error) => {                              
+        this.loading = false;
+        console.log(error);
+      }
+    );
   }
 
 }

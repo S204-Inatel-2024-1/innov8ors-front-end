@@ -1,0 +1,15 @@
+<body>
+<h1 class="titulo">Fases da Fetin</h1>
+<div class="dados">
+<mat-expansion-panel id="mat3" *ngFor="let phase of phases; let i = index" class="dados_proj_space">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ phaseName[i] }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>ID: {{ id[i] }}</p>
+    <p>Data de inicio: {{ startDate[i] }}</p>
+    <p>Data de fim: {{ endDate[i] }}</p>
+  </mat-expansion-panel>
+</div>
+</body>

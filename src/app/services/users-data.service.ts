@@ -8,10 +8,12 @@ import { Observable } from 'rxjs'
 export class UsersDataService {
   urlBase: string = "https://github-actions-service-smc757oxwq-uc.a.run.app/api/v1";
   private dataArray: any[];
+  private fetinStages: any[];
   dataJson = {};
 
   constructor(private http: HttpClient) {
     this.dataArray = [];
+    this.fetinStages = [];
   }
 
   // Requisições para API
@@ -84,4 +86,11 @@ export class UsersDataService {
     return this.dataJson;
   }
 
+  setFetinStages(data:any){
+    this.fetinStages = data;
+  }
+
+  getFetinStages(){
+    return this.fetinStages;
+  }
 }

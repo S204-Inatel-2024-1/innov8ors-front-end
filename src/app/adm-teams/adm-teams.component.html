@@ -3,6 +3,7 @@
     <div class="but-row">
       <button mat-raised-button (click)="createProject()">Criar projeto</button>
       <button mat-raised-button>Importar planilha</button>
+      <button mat-raised-button (click)="checkStages()">Fases da Fetin</button>
     </div>
   </div>
 
@@ -31,18 +32,6 @@
         </mat-form-field>
         <button mat-raised-button color="fetincolor" (click)="updateData()">Submeter</button>
       </mat-expansion-panel>
-
-      <mat-expansion-panel id="mat3" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Fases da Fetin
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Fase 1</p>
-        <p>Fase 2</p>
-        <p>Fase 3</p>
-      </mat-expansion-panel>
-      
     </div>
   </mat-accordion>
 </body>
